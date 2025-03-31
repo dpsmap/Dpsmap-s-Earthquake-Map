@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sample Maps</title>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.3.6/css/buttons.dataTables.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.9/css/responsive.dataTables.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.9/css/responsive.bootstrap4.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .thumbnail { max-width: 80px; max-height: 80px; }
+        .recent-files { background: rgba(255, 255, 255, 0.1); padding: 15px; border-radius: 5px; }
+        .recent-file-item { transition: transform 0.2s; }
+        .recent-file-item:hover { transform: scale(1.05); }
+        .recent-file-item img { width: 100%; height: 100%; object-fit: cover; border-radius: 4px; }
+        .recent-file-item small { color: black; text-align: center; }
+        .view-counter { margin-left: 10px; color: #666; font-size: 0.9em; }
+        .view-counter i { margin-right: 3px; }
+        .view-count { font-weight: bold; }
+        #buyNow { position: fixed; top: 50%; right: 0; background-color: rgb(0, 0, 0); color: white; border: none; cursor: pointer; padding: 15px; font-size: 16px; transform: translateY(-50%); z-index: 1000; }
+    </style>
+</head>
+<body>
+    <div class="container-fluid" style="background-color:#2342;">
+        <h2 class="text-center pt-3" style="text-shadow:1px 1px 1px black"><a href="https://dpsmap.com/">DPSMAP'S</a> Earthquake Maps</h2>
+        <div class="row">
+            <div class="col" style="background-color:#2342;">
+                <h2 class="mt-2">Lists</h2>
+                <button href="#" id="toggleTable" class="">Show Table With Details</button>
+                <div id="folderStructure" class="mb-5"></div>
+            </div>
+            <div class="col bg-white" id='dt' style="display: none;">
+                <h2 class="text-center">Table</h2>
+                <table id="imageTable" class="display nowrap responsive table table-striped table-bordered dt-responsive nowrap" style="width:100%">
+                    <thead>
+                        <tr>
+                            <th>No</th>
+                            <th>Name</th>
+                            <th>Size</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.3.6/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+    <script src="https://cdn.datatables.net/responsive/2.2.9/js/dataTables.responsive.min.js"></script>
+    <script src="https://cdn.datatables.net/responsive/2.2.9/js/responsive.bootstrap4.min.js"></script>
+    <script src="https://cdn.datatables.net/1.11.5/js/dataTables.bootstrap4.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/js/all.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            function generateFolderStructure(data) {
+                let html = '';
+                let currentFolder = null;
+                let rowOpen = false;
+                let colCount = 0;
+
+                data.forEach((item, index) => {
+                    if (item.type === 'directory') {
+                        if (rowOpen) {
+                            html += '</div>';
+                            rowOpen = false;
+                            colCount = 0;
+                        }
+                        html += `<h4 class='my-3'>${item.name}</h4>`;
+                    } else {
+                        if (colCount % 3 === 0) {
+                            if (rowOpen) {
+                                html += '</div>';
+                            }
+                            html += '<div class="row">';
+                            rowOpen = true;
+                        }
+
+                        html += `
+                       <div class="col-md-4">
+                            <li>
+                                <i class="fa fa-file" style="padding-right:10px;"></i>
+                                <a style="color:blue"
+                                   href="${item.path}"
+                                   target="_blank">
+                                   ${item.name}
+                                    ( ${item.size} )
+                                     <br>
+                                     </a>
+                            </li>
+                        </div>
+                        `;
+                        colCount++;
+
+                        if (colCount % 3 === 0) {
+                            html += '</div>';
+                            rowOpen = false;
+                        }
+                    }
+                });
+
+                if (rowOpen) {
+                    html += '</div>';
+                }
+
+                return html;
+            }
+
+            $.ajax({
+                url: 'data.json', // Path to your JSON file
+                dataType: 'json',
+                success: function(response) {
+                    const folderStructureHTML = generateFolderStructure(response);
+                    $('#folderStructure').html(folderStructureHTML);
+                },
+                error: function(xhr, status, error) {
+                    console.error("Error fetching data:", error);
+                    $('#folderStructure').html('<p>Error loading folder structure.</p>');
+                }
+            });
+
+            $('#imageTable').DataTable({
+                data: [], // Initialize with empty data
+                "columnDefs": [{
+                    "targets": 0,
+                    "render": function(data, type, row, meta) {
+                        return meta.row + meta.settings._iDisplayStart + 1;
+                    }
+                }],
+                'columns': [{
+                        "data": null,
+                        "name": "rownum",
+                        "searchable": false,
+                        "orderable": false
+                    },
+                    {
+                        'data': 'name'
+                    },
+                    {
+                        'data': 'size'
+                    },
+                    {
+                        'data': null,
+                        'render': function(data, type, row) {
+                            if (row.type === 'directory') {
+                                return 'Directory';
+                            } else {
+                                return '<a href="' + row.path + '" download class="btn btn-primary bg-primary ">Download</a><span> </span>' +
+                                    '<a data-fancybox="gallery" href="' + row.path + '" class="btn btn-info ms-1">View</a>';
+                            }
+                        }
+                    }
+                ],
+                initComplete: function() {
+                    // Load data into DataTable after initialization
+                    $.ajax({
+                        url: 'data.json',
+                        dataType: 'json',
+                        success: function(response) {
+                            $('#imageTable').DataTable().clear().rows.add(response).draw();
+                        },
+                        error: function(xhr, status, error) {
+                            console.error("Error fetching data:", error);
+                        }
+                    });
+                },
+                "pageLength": 15
+            });
+
+            $('#toggleTable').on('click', function(e) {
+                e.preventDefault();
+                $('#dt').toggle();
+
+                if ($('#dt').is(':visible')) {
+                    $(this).text('Hide Table');
+                } else {
+                    $(this).text('Show Table with Details');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
