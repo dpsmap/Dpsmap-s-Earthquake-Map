@@ -5,7 +5,6 @@
     <title>Sample Maps</title>
     <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.3.6/css/buttons.dataTables.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.9/css/responsive.dataTables.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.9/css/responsive.bootstrap4.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
@@ -24,18 +23,19 @@
     </style>
 </head>
 <body>
-     <div class="container-fluid" style="background-color:#2342;">
+    <div class="container-fluid" style="background-color:#2342;">
         <h2 class="text-center pt-3" style="text-shadow:1px 1px 1px black"><a href="https://dpsmap.com/">DPSMAP'S</a> Earthquake Maps</h2>
         <div class="row">
             <div class="col" style="background-color:#2342;">
                 <h2 class="mt-2">Lists</h2>
                 <button href="#" id="toggleTable" class="">Show Table With Details</button>
-                <div id="folderStructure" class="mb-5">
+
+                <div id="folderStructure" class="mb-5  pt-3">
                     <ul>
                         <li>
                             <i class="fa fa-file" style="padding-right:10px;"></i>
                             <a style="color:blue"
-                               href="http://localhost/dps's%20earthquake/DPS_MDY_City_ENG.jpg"
+                               href="https://dpsmap.github.io/Dpsmap-s-Earthquake-Map/DPS_MDY_City_ENG.jpg"
                                target="_blank">
                                 DPS_MDY_City_ENG.jpg (17.1 MB)
                             </a>
@@ -43,19 +43,50 @@
                         <li>
                             <i class="fa fa-file" style="padding-right:10px;"></i>
                             <a style="color:blue"
-                               href="http://localhost/dps's%20earthquake/DPS_MDY_city_Map.jpg"
+                               href="https://dpsmap.github.io/Dpsmap-s-Earthquake-Map/DPS_MDY_city_Map.jpg"
                                target="_blank">
                                 DPS_MDY_city_Map.jpg (64.6 MB)
                             </a>
                         </li>
+                        <br>
+                        <h2>Sagaing</h2>
                           <li>
                             <i class="fa fa-file" style="padding-right:10px;"></i>
                             <a style="color:blue"
                                href="https://drive.google.com/drive/u/1/folders/1KWt660bjnfozpnuf_iRbuMnCvGmSPmIK"
                                target="_blank">
-                                DPS_Sagaing_Region.jpg (7.4 MB)
+                                DPS_Sagaing_Regiondd.jpg (7.4 MB)
                             </a>
                         </li>
+                        <br>
+                            <h3>NayPyiTaw</h3>
+                          <li>
+                            <i class="fa fa-file" style="padding-right:10px;"></i>
+                            <a style="color:blue"
+                               href="https://drive.google.com/file/d/18qp4XvMeT3U5ikj2HklPLuJ96TsmoxOq/view?usp=drive_link"
+                               target="_blank">
+                                DPS_NPT_Map.jpg (61.2 MB)
+                            </a>
+                        </li>
+                        <br>
+                         <h3>Mandalay</h3>
+                          <li>
+                            <i class="fa fa-file" style="padding-right:10px;"></i>
+                            <a style="color:blue"
+                               href="https://drive.google.com/file/d/1a2uFb_mx6gdaaFsjL5a7mLIE_AlXsTx5/view?usp=drive_link"
+                               target="_blank">
+                                DPS_MDY_city_Map.jpg (61.6 MB)
+                            </a>
+                        </li>
+                         <li>
+                            <i class="fa fa-file" style="padding-right:10px;"></i>
+                            <a style="color:blue"
+                               href="https://drive.google.com/file/d/1a2uFb_mx6gdaaFsjL5a7mLIE_AlXsTx5/view?usp=drive_link"
+                               target="_blank">
+                                DPS_MDY_City_ENG_Version.jpg (16.3 MB)
+                            </a>
+                        </li>
+
                     </ul>
                 </div>
             </div>
@@ -71,134 +102,43 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>DPS_MDY_City_ENG.jpg</td>
-                            <td>17.1 MB</td>
-                            <td>
-                                <a href="https://dpsmap.github.io/Dpsmap-s-Earthquake-Map/DPS_MDY_City_ENG.jpg" download class="btn btn-primary bg-primary">Download</a>
-                                <span> </span>
-                                <a data-fancybox="gallery" href="http://localhost/dps's%20earthquake/DPS_MDY_City_ENG.jpg" class="btn btn-info ms-1">View</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>DPS_MDY_city_Map.jpg</td>
-                            <td>64.6 MB</td>
-                            <td>
-                                <a href="https://dpsmap.github.io/Dpsmap-s-Earthquake-Map/DPS_MDY_city_Map.jpg" download class="btn btn-primary bg-primary">Download</a>
-                                <span> </span>
-                                <a data-fancybox="gallery" href="http://localhost/dps's%20earthquake/DPS_MDY_city_Map.jpg" class="btn btn-info ms-1">View</a>
-                            </td>
-                        </tr>
+                        <!-- DataTable content will be generated here -->
                     </tbody>
                 </table>
             </div>
         </div>
     </div>
-    <!-- <div class="container-fluid" style="background-color:#2342;">
-        <h2 class="text-center pt-3" style="text-shadow:1px 1px 1px black"><a href="https://dpsmap.com/">DPSMAP'S</a> Earthquake Maps</h2>
-        <div class="row">
-            <div class="col" style="background-color:#2342;">
-                <h2 class="mt-2">Lists</h2>
-                <button href="#" id="toggleTable" class="">Show Table With Details</button>
-                <div id="folderStructure" class="mb-5"></div>
-            </div>
-            <div class="col bg-white" id='dt' style="display: none;">
-                <h2 class="text-center">Table</h2>
-                <table id="imageTable" class="display nowrap responsive table table-striped table-bordered dt-responsive nowrap" style="width:100%">
-                    <thead>
-                        <tr>
-                            <th>No</th>
-                            <th>Name</th>
-                            <th>Size</th>
-                            <th>Action</th>
-                        </tr>
-                    </thead>
-                    <tbody></tbody>
-                </table>
-            </div>
-        </div>
-    </div> -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/buttons/2.3.6/js/dataTables.buttons.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
     <script src="https://cdn.datatables.net/responsive/2.2.9/js/dataTables.responsive.min.js"></script>
     <script src="https://cdn.datatables.net/responsive/2.2.9/js/responsive.bootstrap4.min.js"></script>
     <script src="https://cdn.datatables.net/1.11.5/js/dataTables.bootstrap4.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/js/all.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
     <script>
         $(document).ready(function() {
-            function generateFolderStructure(data) {
-                let html = '';
-                let currentFolder = null;
-                let rowOpen = false;
-                let colCount = 0;
+            // Extract data from the list items
+            var data = [];
+            $('#folderStructure ul li a').each(function(index) {
+                var link = $(this);
+                var href = link.attr('href');
+                var text = link.text();
+                var name = text.substring(0, text.lastIndexOf('(')).trim();
+                var size = text.substring(text.lastIndexOf('(') + 1, text.lastIndexOf(')')).trim();
 
-                data.forEach((item, index) => {
-                    if (item.type === 'directory') {
-                        if (rowOpen) {
-                            html += '</div>';
-                            rowOpen = false;
-                            colCount = 0;
-                        }
-                        html += `<h4 class='my-3'>${item.name}</h4>`;
-                    } else {
-                        if (colCount % 3 === 0) {
-                            if (rowOpen) {
-                                html += '</div>';
-                            }
-                            html += '<div class="row">';
-                            rowOpen = true;
-                        }
-
-                        html += `
-                       <div class="col-md-4">
-                            <li>
-                                <i class="fa fa-file" style="padding-right:10px;"></i>
-                                <a style="color:blue"
-                                   href="${item.path}"
-                                   target="_blank">
-                                   ${item.name}
-                                    ( ${item.size} )
-                                     <br>
-                                     </a>
-                            </li>
-                        </div>
-                        `;
-                        colCount++;
-
-                        if (colCount % 3 === 0) {
-                            html += '</div>';
-                            rowOpen = false;
-                        }
-                    }
+                data.push({
+                    name: name,
+                    size: size,
+                    path: href,
+                    type: 'file' // Assuming all are files
                 });
-
-                if (rowOpen) {
-                    html += '</div>';
-                }
-
-                return html;
-            }
-
-            $.ajax({
-                url: 'data.json', // Path to your JSON file
-                dataType: 'json',
-                success: function(response) {
-                    const folderStructureHTML = generateFolderStructure(response);
-                    $('#folderStructure').html(folderStructureHTML);
-                },
-                error: function(xhr, status, error) {
-                    console.error("Error fetching data:", error);
-                    $('#folderStructure').html('<p>Error loading folder structure.</p>');
-                }
             });
 
             $('#imageTable').DataTable({
-                data: [], // Initialize with empty data
+                data: data,
                 "columnDefs": [{
                     "targets": 0,
                     "render": function(data, type, row, meta) {
@@ -223,25 +163,11 @@
                             if (row.type === 'directory') {
                                 return 'Directory';
                             } else {
-                                return '<a href="' + row.path + '" download class="btn btn-primary bg-primary ">Download</a><span> </span>' +
-                                    '<a data-fancybox="gallery" href="' + row.path + '" class="btn btn-info ms-1">View</a>';
+                                return '<a href="' + row.path + '" download class="btn btn-primary bg-primary ">Download</a><span>&nbsp;&nbsp;<a href="' + row.path + '" target="_blank" class=" btn btn-primary bg-info ">View</a>';
                             }
                         }
                     }
                 ],
-                initComplete: function() {
-                    // Load data into DataTable after initialization
-                    $.ajax({
-                        url: 'data.json',
-                        dataType: 'json',
-                        success: function(response) {
-                            $('#imageTable').DataTable().clear().rows.add(response).draw();
-                        },
-                        error: function(xhr, status, error) {
-                            console.error("Error fetching data:", error);
-                        }
-                    });
-                },
                 "pageLength": 15
             });
 
