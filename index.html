@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sample Maps</title>
     <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.3.6/css/buttons.dataTables.min.css">
@@ -10,16 +11,72 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        .thumbnail { max-width: 80px; max-height: 80px; }
-        .recent-files { background: rgba(255, 255, 255, 0.1); padding: 15px; border-radius: 5px; }
-        .recent-file-item { transition: transform 0.2s; }
-        .recent-file-item:hover { transform: scale(1.05); }
-        .recent-file-item img { width: 100%; height: 100%; object-fit: cover; border-radius: 4px; }
-        .recent-file-item small { color: black; text-align: center; }
-        .view-counter { margin-left: 10px; color: #666; font-size: 0.9em; }
-        .view-counter i { margin-right: 3px; }
-        .view-count { font-weight: bold; }
-        #buyNow { position: fixed; top: 50%; right: 0; background-color: rgb(0, 0, 0); color: white; border: none; cursor: pointer; padding: 15px; font-size: 16px; transform: translateY(-50%); z-index: 1000; }
+        /* Mobile-first styles */
+        .thumbnail {
+            max-width: 80px;
+            max-height: 80px;
+        }
+
+        .recent-files {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 15px;
+            border-radius: 5px;
+        }
+
+        .recent-file-item {
+            transition: transform 0.2s;
+        }
+
+        .recent-file-item:hover {
+            transform: scale(1.05);
+        }
+
+        .recent-file-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 4px;
+        }
+
+        .recent-file-item small {
+            color: black;
+            text-align: center;
+        }
+
+        .view-counter {
+            margin-left: 10px;
+            color: #666;
+            font-size: 0.9em;
+        }
+
+        .view-counter i {
+            margin-right: 3px;
+        }
+
+        .view-count {
+            font-weight: bold;
+        }
+
+        #buyNow {
+            position: fixed;
+            top: 50%;
+            right: 0;
+            background-color: rgb(0, 0, 0);
+            color: white;
+            border: none;
+            cursor: pointer;
+            padding: 15px;
+            font-size: 16px;
+            transform: translateY(-50%);
+            z-index: 1000;
+        }
+
+        /* Media query for larger screens */
+        @media (min-width: 768px) {
+            .col {
+                width: 50%; /* Adjust as needed */
+            }
+        }
     </style>
 </head>
 <body>
