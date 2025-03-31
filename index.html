@@ -24,7 +24,71 @@
     </style>
 </head>
 <body>
-    <div class="container-fluid" style="background-color:#2342;">
+     <div class="container-fluid" style="background-color:#2342;">
+        <h2 class="text-center pt-3" style="text-shadow:1px 1px 1px black"><a href="https://dpsmap.com/">DPSMAP'S</a> Earthquake Maps</h2>
+        <div class="row">
+            <div class="col" style="background-color:#2342;">
+                <h2 class="mt-2">Lists</h2>
+                <button href="#" id="toggleTable" class="">Show Table With Details</button>
+                <div id="folderStructure" class="mb-5">
+                    <ul>
+                        <li>
+                            <i class="fa fa-file" style="padding-right:10px;"></i>
+                            <a style="color:blue"
+                               href="http://localhost/dps's%20earthquake/DPS_MDY_City_ENG.jpg"
+                               target="_blank">
+                                DPS_MDY_City_ENG.jpg (17.1 MB)
+                            </a>
+                        </li>
+                        <li>
+                            <i class="fa fa-file" style="padding-right:10px;"></i>
+                            <a style="color:blue"
+                               href="http://localhost/dps's%20earthquake/DPS_MDY_city_Map.jpg"
+                               target="_blank">
+                                DPS_MDY_city_Map.jpg (64.6 MB)
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col bg-white" id='dt' style="display: none;">
+                <h2 class="text-center">Table</h2>
+                <table id="imageTable" class="display nowrap responsive table table-striped table-bordered dt-responsive nowrap" style="width:100%">
+                    <thead>
+                        <tr>
+                            <th>No</th>
+                            <th>Name</th>
+                            <th>Size</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>DPS_MDY_City_ENG.jpg</td>
+                            <td>17.1 MB</td>
+                            <td>
+                                <a href="http://localhost/dps's%20earthquake/DPS_MDY_City_ENG.jpg" download class="btn btn-primary bg-primary">Download</a>
+                                <span> </span>
+                                <a data-fancybox="gallery" href="http://localhost/dps's%20earthquake/DPS_MDY_City_ENG.jpg" class="btn btn-info ms-1">View</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>DPS_MDY_city_Map.jpg</td>
+                            <td>64.6 MB</td>
+                            <td>
+                                <a href="http://localhost/dps's%20earthquake/DPS_MDY_city_Map.jpg" download class="btn btn-primary bg-primary">Download</a>
+                                <span> </span>
+                                <a data-fancybox="gallery" href="http://localhost/dps's%20earthquake/DPS_MDY_city_Map.jpg" class="btn btn-info ms-1">View</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <!-- <div class="container-fluid" style="background-color:#2342;">
         <h2 class="text-center pt-3" style="text-shadow:1px 1px 1px black"><a href="https://dpsmap.com/">DPSMAP'S</a> Earthquake Maps</h2>
         <div class="row">
             <div class="col" style="background-color:#2342;">
@@ -47,7 +111,7 @@
                 </table>
             </div>
         </div>
-    </div>
+    </div> -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/buttons/2.3.6/js/dataTables.buttons.min.js"></script>
